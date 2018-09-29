@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NG-ZORRO-MOBILE Ant Design Mobile Of Angular</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="https://gw.alipayobjects.com/zos/rmsportal/vCgyalwcqlpHLsJOIMwA.ico">
+  <script type="text/javascript">
+    var isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent);
+    var href = window.location.href;
+    var locale = new Date().toString();
+    var lang = locale.indexOf('GMT+0800') > -1 ? '?lang=zh-CN' : '?lang=en-US';
+    if (isMobile && !(href.indexOf('kitchen-sink') > -1) && !(href.indexOf('demo') > -1)) {
+      window.location.href = window.location.origin + '/#/kitchen-sink' + lang;
+    }
+  </script>
+  <link href="{{zorroMobileUrlPrefix}}styles.css" rel="stylesheet"/>
+  <script>
+    (function (h, o, t, j, a, r) {
+      var href = window.location.href;
+      if (href.indexOf('basic') <= -1) {
+        h.hj = h.hj || function () {(h.hj.q = h.hj.q || []).push(arguments)};
+        h._hjSettings = {hjid: 792689, hjsv: 6};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      }
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126629800-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-126629800-1');
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+
+  <script>
+    if (!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
+    }
+    // Enable Google Analytics
+    if (!location.port) {
+      /* eslint-disable */
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-126629800-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }</script>
+</head>
+<body>
+<app-root></app-root>
+<script type="text/javascript" src="https://gw.alipayobjects.com/os/rmsportal/dMibglMopKdlvEArJXbS.js"></script>
+<script type="text/javascript" src="{{zorroMobileUrlPrefix}}runtime.js"></script>
+<script type="text/javascript" src="{{zorroMobileUrlPrefix}}polyfills.js"></script>
+<script type="text/javascript" src="{{zorroMobileUrlPrefix}}main.js"></script>
+</body>
+</html>
