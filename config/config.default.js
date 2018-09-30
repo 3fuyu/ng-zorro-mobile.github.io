@@ -14,11 +14,11 @@ module.exports = appInfo => {
     mapping: {
       '.html': 'nunjucks'
     }
-  }
+  };
 
   config.static = {
-    prefix: '/assets/',
-    dir:[path.join(__dirname, '../app/assets')]
+    prefix: '/.well-known/',
+    dir:[path.join(__dirname, '../app/.well-known')]
   };
 
   return config;
