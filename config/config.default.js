@@ -17,8 +17,8 @@ module.exports = appInfo => {
   };
 
   config.static = {
-    prefix: '/.well-known/',
-    dir:[path.join(__dirname, '../app/.well-known')]
+    prefix: '/assets/',
+    dir:[path.join(__dirname, '../app/assets')]
   };
 
   return config;
