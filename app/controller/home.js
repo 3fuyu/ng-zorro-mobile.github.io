@@ -12,7 +12,7 @@ class HomeController extends Controller {
     let version = '';
 
     if (href.includes('version')) {
-      version = href.match(/version\/(\S*)\//)[1];
+      version = href.match(/version\/(\S*)/)[1];
     }
 
     const data = { name: 'ng-zorro-mobile', zorroMobileUrlPrefix: diamond.zorroMobileUrlPrefix + (version || diamond.version) + '/'};
