@@ -17,7 +17,7 @@ module.exports = appInfo => {
   };
 
   config.static = {
-    prefix: '/assets/',
+    prefix: '/',
     dir:[path.join(__dirname, '../app/assets')]
   };
 
