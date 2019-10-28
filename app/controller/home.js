@@ -21,13 +21,7 @@ class HomeController extends Controller {
   }
 
   async issueHelper() {
-    const { ctx } = this;
-    ctx.body = {
-      code: 0,
-      data: 'success'
-    };
-
-    // await this.ctx.render('issue_helper.html');
+    await this.ctx.render('issue_helper.html');
   }
 
   async publish() {
