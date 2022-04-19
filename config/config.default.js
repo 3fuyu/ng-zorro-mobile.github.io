@@ -15,15 +15,15 @@ module.exports = appInfo => {
       '.html': 'nunjucks'
     }
   };
-  config.static = {
-    prefix: '/assets/',
-    dir:[path.join(__dirname, '../app/assets')]
-  };
-
   // config.static = {
-  //   prefix: '/.well-known/',
-  //   dir: [path.join(__dirname, '../.well-known')]
-  //  }
+  //   prefix: '/assets/',
+  //   dir:[path.join(__dirname, '../app/assets')]
+  // };
+
+  config.static = {
+    prefix: '/.well-known/',
+    dir: [path.join(__dirname, '../.well-known')]
+   }
 
   return config;
 };
