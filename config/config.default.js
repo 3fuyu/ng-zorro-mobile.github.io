@@ -15,15 +15,15 @@ module.exports = appInfo => {
       '.html': 'nunjucks'
     }
   };
-  config.static = {
-    prefix: '/assets/',
-    dir:[path.join(__dirname, '../app/assets')]
-  };
-  // config.static => 在更新证书验证阶段，需要使用well-known，在日常运行阶段 需要用assets 注意在更新证书阶段和更新完成后修改
   // config.static = {
-  //   prefix: '/.well-known/',
-  //   dir: [path.join(__dirname, '../.well-known')]
-  //  }
+  //   prefix: '/assets/',
+  //   dir:[path.join(__dirname, '../app/assets')]
+  // };
+  // config.static => 在更新证书验证阶段，需要使用well-known，在日常运行阶段 需要用assets 注意在更新证书阶段和更新完成后修改
+  config.static = {
+    prefix: '/.well-known/',
+    dir: [path.join(__dirname, '../.well-known')]
+   }
 
   return config;
 };
