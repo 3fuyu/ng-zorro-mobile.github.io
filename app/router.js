@@ -10,4 +10,5 @@ module.exports = app => {
   router.get('/issue-helper', controller.home.issueHelper);
   router.get('/publish', controller.home.publish);
   router.post('/publish', controller.home.publish);
+  router.get('/openAi', controller.home.openAi);
 };

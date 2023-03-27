@@ -43,6 +43,27 @@ class HomeController extends Controller {
       ctx.body = 'Github: https://github.com/NG-ZORRO/ng-zorro-antd-mobile';
     }
   }
+
+  async openAi() {
+    const { ctx } = this;
+    const { model, prompt, temperature, max_tokens } = ctx.query;
+    const { openAi } = this.app.config;
+
+    const completion = await openAi.createCompletion({
+      model: model || "text-davinci-003",
+      prompt: prompt || "hello world",
+      temperature: temperature || 0.7,
+      max_tokens: max_tokens || 256,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0
+    });
+
+    ctx.body = {
+      code: 0,
+      data: completion.data.choices[0].text
+    }
+  }
 }
 
 module.exports = HomeController;
