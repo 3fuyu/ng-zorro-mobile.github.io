@@ -18,6 +18,7 @@ class AppBootHook {
     });
     const openAi = new OpenAIApi(configuration);
     this.app.config.openAi = openAi;
+    this.app.ai = { history: [] };
   }
 }
 
