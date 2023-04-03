@@ -63,10 +63,10 @@ class OpenAiController extends Controller {
     const openai = new OpenAIApi(configuration);
   
     if (isEnd) {
-      this.app.ai.history = [];
+      this.app.ai.history[apiKey] = [];
     }
 
-    const history = this.app.ai.history;
+    const history = this.app.ai.history[apiKey] || [];
 
     const messages = [];
     for (const [ input_text, completion_text ] of history) {
@@ -82,13 +82,11 @@ class OpenAiController extends Controller {
         model: 'gpt-3.5-turbo',
         messages,
       });
-
       const completion_text = completion.data.choices[0].message.content;
-      console.log(completion_text);
 
       history.push([ user_input, completion_text ]);
 
-      this.app.ai.history = history;
+      this.app.ai.history[apiKey] = history;
       ctx.body = {
         code: 0,
         data: completion_text,

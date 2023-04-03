@@ -18,7 +18,7 @@ class AppBootHook {
     });
     const openAi = new OpenAIApi(configuration);
     this.app.config.openAi = openAi;
-    this.app.ai = { history: [] };
+    this.app.ai = { history: {} };
   }
   async serverDidReady() {
     // http / https server 已启动，开始接受外部请求
