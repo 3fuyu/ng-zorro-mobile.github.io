@@ -3,7 +3,6 @@
 const Controller = require('egg').Controller;
 const fs = require('fs');
 const path = require('path');
-const { Configuration, OpenAIApi } = require('openai');
 
 class HomeController extends Controller {
   async index() {
