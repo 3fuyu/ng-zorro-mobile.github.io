@@ -110,7 +110,7 @@ class OpenAiController extends Controller {
   async createFineTune() {
     const { ctx } = this;
     const params = ctx.request.method === 'GET' ? ctx.query : ctx.request.body;
-    const { apiKey, createFineTuneRequest, options } = params;
+    const { apiKey, createFineTuneRequest, options = {} } = params;
     const configuration = new Configuration({
       apiKey: apiKey || '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',
     });
@@ -122,7 +122,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -142,7 +142,7 @@ class OpenAiController extends Controller {
   async listFineTunes() {
     const { ctx } = this;
     const params = ctx.request.method === 'GET' ? ctx.query : ctx.request.body;
-    const { apiKey, options } = params;
+    const { apiKey, options = {} } = params;
     const configuration = new Configuration({
       apiKey: apiKey || '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',
     });
@@ -154,7 +154,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -186,7 +186,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -218,7 +218,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -250,7 +250,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -282,7 +282,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -314,7 +314,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -346,7 +346,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -378,7 +378,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -410,7 +410,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -442,7 +442,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
@@ -462,7 +462,7 @@ class OpenAiController extends Controller {
   async createEmbedding() {
     const { ctx } = this;
     const params = ctx.request.method === 'GET' ? ctx.query : ctx.request.body;
-    const { apiKey, createEmbeddingRequest, options } = params;
+    const { apiKey, createEmbeddingRequest, options = {} } = params;
     const configuration = new Configuration({
       apiKey: apiKey || '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',
     });
@@ -474,7 +474,7 @@ class OpenAiController extends Controller {
 
       ctx.body = {
         code: 0,
-        data: result,
+        data: result.data,
       };
     } catch (error) {
       if (error.response) {
