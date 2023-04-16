@@ -335,7 +335,7 @@ class OpenAiController extends Controller {
   }
 
   async uploadFile() {
-    const { ctx, req } = this;
+    const { ctx } = this;
 
     function parse(req) {
       const form = new formidable.IncomingForm();
@@ -348,7 +348,7 @@ class OpenAiController extends Controller {
         });
       });
     }
-    const extraParams = await parse(req);
+    const extraParams = await parse(ctx.req);
     const { apiKey, purpose, options = {} } = extraParams.fields;
     const configuration = new Configuration({
       apiKey: apiKey || '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',
