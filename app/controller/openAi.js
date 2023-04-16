@@ -2,6 +2,9 @@
 
 const Controller = require('egg').Controller;
 const { Configuration, OpenAIApi } = require('openai');
+const formidable = require('formidable');
+const fs = require('fs');
+
 require('dotenv').config();
 
 class OpenAiController extends Controller {
@@ -332,13 +335,26 @@ class OpenAiController extends Controller {
   }
 
   async uploadFile() {
-    const { ctx } = this;
-    const params = ctx.request.method === 'GET' ? ctx.query : ctx.request.body;
-    const { apiKey, file, purpose, options = {} } = params;
+    const { ctx, req } = this;
+
+    function parse(req) {
+      const form = new formidable.IncomingForm();
+      return new Promise((resolve, reject) => {
+        form.parse(req, (err, fields, files) => {
+          resolve({ fields, files });
+          reject(res => {
+            throw new Error(res);
+          });
+        });
+      });
+    }
+    const extraParams = await parse(req);
+    const { apiKey, purpose, options = {} } = extraParams.fields;
     const configuration = new Configuration({
       apiKey: apiKey || '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',
     });
-
+    const fileStream = extraParams.files.file;
+    const file = fs.createReadStream(fileStream._writeStream.path);
     const openAi = new OpenAIApi(configuration);
 
     try {
