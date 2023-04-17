@@ -506,6 +506,38 @@ class OpenAiController extends Controller {
       }
     }
   }
+
+  async createCompletion() {
+    const { ctx } = this;
+    const params = ctx.request.method === 'GET' ? ctx.query : ctx.request.body;
+    const { apiKey, createCompletionRequest, options = {} } = params;
+    const configuration = new Configuration({
+      apiKey: apiKey || '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',
+    });
+
+    const openAi = new OpenAIApi(configuration);
+
+    try {
+      const result = await openAi.createCompletion(createCompletionRequest, options);
+
+      ctx.body = {
+        code: 0,
+        data: result.data,
+      };
+    } catch (error) {
+      if (error.response) {
+        ctx.body = {
+          code: error.response.status,
+          data: error.response.data,
+        };
+      } else {
+        ctx.body = {
+          code: 500,
+          data: error.message,
+        };
+      }
+    }
+  }
 }
 
 module.exports = OpenAiController;

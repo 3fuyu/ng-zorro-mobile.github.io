@@ -27,4 +27,6 @@ module.exports = app => {
   router.get('/retrieveFileContent', controller.openAi.retrieveFileContent);
 
   router.post('/createEmbedding', controller.openAi.createEmbedding);
+
+  router.post('/createCompletion', controller.openAi.createCompletion);
 };
