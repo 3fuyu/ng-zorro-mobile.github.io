@@ -32,4 +32,6 @@ module.exports = app => {
   router.post('/createEmbedding', controller.openAi.createEmbedding);
 
   router.post('/createCompletion', controller.openAi.createCompletion);
+  router.get('/v1/completions', controller.openAi.createCompletion);
+  router.post('/v1/completions', controller.openAi.createCompletion);
 };
