@@ -12,6 +12,9 @@ module.exports = app => {
   router.post('/publish', controller.home.publish);
   router.get('/openAi', controller.openAi.openAi);
   router.get('/openAiChat', controller.openAi.openAiChat);
+  router.post('/openAiChat', controller.openAi.openAiChat);
+  router.get('/v1/chat/completions', controller.openAi.openAiChat);
+  router.post('/v1/chat/completions', controller.openAi.openAiChat);
 
   router.post('/createFineTune', controller.openAi.createFineTune);
   router.get('/listFineTunes', controller.openAi.listFineTunes);

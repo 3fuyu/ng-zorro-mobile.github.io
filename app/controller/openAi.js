@@ -58,7 +58,9 @@ class OpenAiController extends Controller {
   }
 
   async openAiChat() {
-    const { ctx, ctx: { query: { isEnd = false, prompt: user_input, apiKey } } } = this;
+    const { ctx } = this;
+    const params = ctx.request.method === 'GET' ? ctx.query : ctx.request.body;
+    const { isEnd = false, prompt: user_input, apiKey } = params;
     const configuration = new Configuration({
       apiKey: apiKey || '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',
     });
