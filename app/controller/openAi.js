@@ -95,6 +95,7 @@ class OpenAiController extends Controller {
       ctx.body = {
         code: 0,
         data: completion_text,
+        origin: completion.data,
         history,
       };
     } catch (error) {
